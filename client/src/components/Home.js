@@ -89,7 +89,7 @@ class Home extends Component {
 
     logout = () => {
         this.props.logout();
-        this.props.history.push('/login');
+        this.props.history.push('/');
     }
 
     addCustomer = () => {

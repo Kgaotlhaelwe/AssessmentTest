@@ -82,7 +82,7 @@ class Form extends Component {
             }
 
             this.props.register(user)
-            this.props.history.push('/');
+            this.props.history.push('/home');
 
         }
 
