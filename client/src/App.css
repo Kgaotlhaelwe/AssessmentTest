@@ -261,12 +261,13 @@ input {
 	  list-style: none;
   }
 
- 
-  .noactive{
+  .noactive :hover {
 	background-color: white;
-	color: red;
-	font-size: 2rem ;
+	
   }
+
+ 
+  
 
  
 

@@ -266,7 +266,7 @@ class Home extends Component {
 
                     }
                     <div className="noactive">
-                        <div className='fixed-action-btn' >
+                        <div className='fixed-action-btn  noactive'  >
                             <a class="waves-effect waves-light btn modal-trigger" href="#modaladdcustomer" >Add Product </a>
                         </div>
                     </div>
@@ -315,7 +315,7 @@ class Home extends Component {
 
                             </table>
 
-                            <div className='fixed-action-btn' id="addbtnCustomer">
+                            <div className='fixed-action-btn  noactive' id="addbtnCustomer">
                                 <a class="waves-effect waves-light btn modal-trigger" href="#modalCustomer" >Add Customer</a>
                             </div>
 
@@ -372,7 +372,7 @@ class Home extends Component {
 
                         </table>
 
-                        <div className='fixed-action-btn'>
+                        <div className='fixed-action-btn  noactive'>
                             <a class="waves-effect waves-light btn modal-trigger" href="#modalSoldProduct">Add Sold Product</a>
                         </div>
 
