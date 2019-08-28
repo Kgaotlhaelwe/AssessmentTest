@@ -26,10 +26,10 @@ class App extends Component {
 
     <Provider store={store}>
       <Router> 
-    <div className="App">
+    <div >
 
       <Switch>
-      <Route exact path='/' component={Form} />
+      <Route exact path='/login' component={Form} />
       <Route exact path='/home' component={Home} />
       </Switch>
     
