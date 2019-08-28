@@ -63,27 +63,37 @@ class Home extends Component {
     addProduct = () => {
         console.log("product")
 
-        const productName = document.getElementById("productName").value;
-        const productDescription = document.getElementById("productDescription").value;
-        const productMonthlyFee = document.getElementById("productMonthlyFee").value;
-        const product = {
-            name: productName,
-            description: productDescription,
-            monthlyfee: productMonthlyFee
+        const { isAuthenticated, user } = this.props.auth;
+
+        if (isAuthenticated) {
+            console.log("dwsedf")
+            const productName = document.getElementById("productName").value;
+            const productDescription = document.getElementById("productDescription").value;
+            const productMonthlyFee = document.getElementById("productMonthlyFee").value;
+            const product = {
+                name: productName,
+                description: productDescription,
+                monthlyfee: productMonthlyFee
+            }
+
+            if (productName == "" && productDescription == "" && productMonthlyFee == "") {
+                M.toast({ html: "Please enter all Details" })
+            } else if (productName == "") {
+                M.toast({ html: "Please enter Product Name" })
+            } else if (productDescription == "") {
+                M.toast({ html: "Please enter Product Description" })
+            } else if (productMonthlyFee == "") {
+                M.toast({ html: "Please enter Product Description" })
+            } else {
+                this.props.addProduct(product);
+                M.toast({ html: "Added Successfully" });
+            }
+
+
+        } else {
+            M.toast({ html: "You not authorised to do anything , Please login or Register first" })
         }
 
-        if (productName == "" && productDescription == "" && productMonthlyFee == "") {
-            M.toast({ html: "Please enter all Details" })
-        } else if (productName == "") {
-            M.toast({ html: "Please enter Product Name" })
-        } else if (productDescription == "") {
-            M.toast({ html: "Please enter Product Description" })
-        } else if (productMonthlyFee == "") {
-            M.toast({ html: "Please enter Product Description" })
-        } else {
-            this.props.addProduct(product);
-            M.toast({ html: "Added Successfully" })
-        }
 
     }
 
@@ -93,41 +103,55 @@ class Home extends Component {
     }
 
     addCustomer = () => {
-        let customerName = document.getElementById('customerName').value;
-        let customerSurname = document.getElementById('customerSurname').value;
-        let customerID = document.getElementById('idNumber').value
 
-        let customerIdlength = customerID.length;
-        if (customerName == "" && customerSurname == "" && customerID == "") {
-            M.toast({ html: "Please enter all Details" })
-        } else if (customerName == "") {
-            M.toast({ html: "Please enter Customer Name" })
-        } else if (customerSurname == "") {
-            M.toast({ html: "Please enter Customer SurName" })
-        } else if (customerID == "") {
-            M.toast({ html: "Please enter Customer ID" })
-        } else if (customerIdlength < 13) {
-            M.toast({ html: "Please enter Correct ID" })
 
-        } else {
-            const customer = {
-                name: customerName,
-                surname: customerSurname,
-                idNumber: customerID
+        const { isAuthenticated, user } = this.props.auth;
+
+        if(isAuthenticated) {
+            let customerName = document.getElementById('customerName').value;
+            let customerSurname = document.getElementById('customerSurname').value;
+            let customerID = document.getElementById('idNumber').value
+    
+            let customerIdlength = customerID.length;
+            if (customerName == "" && customerSurname == "" && customerID == "") {
+                M.toast({ html: "Please enter all Details" })
+            } else if (customerName == "") {
+                M.toast({ html: "Please enter Customer Name" })
+            } else if (customerSurname == "") {
+                M.toast({ html: "Please enter Customer SurName" })
+            } else if (customerID == "") {
+                M.toast({ html: "Please enter Customer ID" })
+            } else if (customerIdlength < 13) {
+                M.toast({ html: "Please enter Correct ID" })
+    
+            } else {
+                const customer = {
+                    name: customerName,
+                    surname: customerSurname,
+                    idNumber: customerID
+                }
+                this.props.addCustomer(customer);
+                M.toast({ html: "Added Successfully" })
             }
-            this.props.addCustomer(customer);
-            M.toast({ html: "Added Successfully" })
+        } else {
+            M.toast({ html: "You not authorised to do anything , Please login or Register first" })
         }
+       
 
 
-        customerName = " ";
-        customerName = " ";
-        customerID = " ";
+      
 
     }
 
+    login = () => {
+        this.props.history.push('/');
+    }
+
     addSoldProduct = () => {
-        let clientName = document.getElementById("clientName").value;
+        const { isAuthenticated, user } = this.props.auth;
+
+        if (isAuthenticated){
+            let clientName = document.getElementById("clientName").value;
         let clientSurname = document.getElementById("clientSurname").value;
         let clientID = document.getElementById("clientID").value;
         let paymentID = document.getElementById("paymentID").value;
@@ -164,6 +188,13 @@ class Home extends Component {
         }
 
 
+        }else {
+            M.toast({ html: "You not authorised to do anything , Please login or Register first" })
+        }
+        
+        
+
+
     }
     render() {
         const { isAuthenticated, user } = this.props.auth;
@@ -173,10 +204,7 @@ class Home extends Component {
         const { customers } = this.props.customer
         const { soldProducts } = this.props.soldProducts
 
-        console.log(soldProducts)
-        console.log(products)
-        console.log(customers)
-
+      
         return (
 
 
@@ -194,7 +222,7 @@ class Home extends Component {
                     </div>
                     <div className="menu">
 
-                        {/* {user.name} */}
+                      
 
 
                         <div onClick={this.productSection} class="menubtn  active">
@@ -209,7 +237,8 @@ class Home extends Component {
                         </div>
 
                         <div className="menubtn">
-                            <h5 onClick={this.logout}> Logout</h5>
+                            { isAuthenticated ?  <div onClick={this.logout}> Logout</div> :  <div onClick={this.login}> Login</div>}
+                           
                         </div>
                     </div>
 
