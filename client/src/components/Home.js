@@ -184,8 +184,13 @@ class Home extends Component {
                 <div class="col-sm" className="sideMenu" id="check">
 
                     <div className="welcomeUser">
-                        <h6>Welcome</h6>
-                        {/* <h6>{user.name}</h6> */}
+                        {user == null ? <div> </div> :
+                            <div>
+                                <h6>Welcome</h6>
+                                <h6>{user.name}</h6>
+                            </div>
+                        }
+
                     </div>
                     <div className="menu">
 
@@ -212,7 +217,7 @@ class Home extends Component {
                 <div class="col-lg" className="part2">
                     {/* The start of product section */}
 
-                    {products.length == 0 ? <h4>Loading ....</h4> : <div>
+                    {products.length == 0 ? <h4>Loading ....</h4> :
 
                         <div id="products">
                             <table class="w3-table-all">
@@ -228,12 +233,16 @@ class Home extends Component {
                                         <td>{item.monthlyfee}</td>
                                     </tr>)}
                             </table>
-                            <div className='fixed-action-btn' id="addbtn">
-                                <a class="waves-effect waves-light btn modal-trigger" href="#modal1" >Add Product </a>
+                        </div>
+
+                    }
+                    
+                    <div className='fixed-action-btn' >
+                                <a class="waves-effect waves-light btn modal-trigger" href="#modaladdcustomer" >Add Product </a>
                             </div>
 
 
-                            <div id="modal1" class="modal">
+                            <div id="modaladdcustomer" class="modal">
                                 <div class="modal-content">
                                     <h4 className="titleHeader">Product Details </h4>
                                     <form action="#">
@@ -248,9 +257,6 @@ class Home extends Component {
                                     <button class="modal-close " onClick={this.addProduct}>ADD PRODUCT</button>
                                 </div>
                             </div>
-                        </div>
-                    </div>}
-
 
                     {/* The end of product section */}
 
