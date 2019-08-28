@@ -145,14 +145,14 @@ class Form extends Component {
                     </div>
 
                 </div> :
-                    <div class="container" id="container">
+                    <div class="container" id="containerz">
                         <div class="form-container sign-in-container">
                             <form action="#">
-                                <h1>Sign in</h1>
-                                <span>or use your account</span>
+                                <h3>Sign in</h3>
+                                
                                 <input type="email" placeholder="Email" id="loginemail" />
                                 <input type="password" placeholder="Password" id="loginpassword" />
-                                <a href="#">Forgot your password?</a>
+                               
                                 <button onClick={this.login}>Sign In</button>
                             </form>
                         </div>
