@@ -262,9 +262,11 @@ input {
   }
 
  
+  .noactive{
+	background-color: white;
+	color: red;
+	font-size: 2rem ;
+  }
 
-
-  #addbtnCustomer :hover {
-	
-}
+ 
 

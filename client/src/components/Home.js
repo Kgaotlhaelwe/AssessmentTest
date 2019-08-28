@@ -236,27 +236,29 @@ class Home extends Component {
                         </div>
 
                     }
-                    
-                    <div className='fixed-action-btn' >
-                                <a class="waves-effect waves-light btn modal-trigger" href="#modaladdcustomer" >Add Product </a>
-                            </div>
+                    <div className="noactive">
+                        <div className='fixed-action-btn' >
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modaladdcustomer" >Add Product </a>
+                        </div>
+                    </div>
 
 
-                            <div id="modaladdcustomer" class="modal">
-                                <div class="modal-content">
-                                    <h4 className="titleHeader">Product Details </h4>
-                                    <form action="#">
 
-                                        <input type="text" id="productName" placeholder="Name of the Product" />
-                                        <input type="email" id="productDescription" placeholder="Description " />
-                                        <input type="text" id="productMonthlyFee" placeholder="Monthly Fee" />
+                    <div id="modaladdcustomer" class="modal">
+                        <div class="modal-content">
+                            <h4 className="titleHeader">Product Details </h4>
+                            <form action="#">
 
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="modal-close " onClick={this.addProduct}>ADD PRODUCT</button>
-                                </div>
-                            </div>
+                                <input type="text" id="productName" placeholder="Name of the Product" />
+                                <input type="email" id="productDescription" placeholder="Description " />
+                                <input type="text" id="productMonthlyFee" placeholder="Monthly Fee" />
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="modal-close " onClick={this.addProduct}>ADD PRODUCT</button>
+                        </div>
+                    </div>
 
                     {/* The end of product section */}
 
