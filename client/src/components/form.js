@@ -145,7 +145,7 @@ class Form extends Component {
                     </div>
 
                 </div> :
-                    <div class="container" id="containerz">
+                    <div class="container" id="container">
                         <div class="form-container sign-in-container">
                             <form action="#">
                                 <h3>Sign in</h3>
