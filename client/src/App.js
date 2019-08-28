@@ -16,6 +16,8 @@ class App extends Component {
 
   componentDidMount() {
     store.dispatch(loadUser());
+
+    console.log(this.props.auth)
   }
 
  render(){
