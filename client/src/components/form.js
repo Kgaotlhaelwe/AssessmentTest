@@ -68,21 +68,26 @@ class Form extends Component {
         }else if(password == ""){
             M.toast({ html: "Please enter password" })
         }else if (atpos < 1 || (dotpos - atpos < 2)) {
-            alert("Please enter correct email ID")
-            
+           
+            M.toast({ html: "Please enter correct email" })
             return false;
         } else if (passlegth < 5) {
-            alert("Please enter atleat 6 characters")
-
+           
+            M.toast({ html: " Wrong Password , Please enter atleast 6 Characters " })
         } else {
+            
+       
             const user = {
                 name: userName,
                 email: email,
                 password: password
             }
 
+            
             this.props.register(user)
-            this.props.history.push('/home');
+           this.props.history.push('/home');
+            
+           
 
         }
 

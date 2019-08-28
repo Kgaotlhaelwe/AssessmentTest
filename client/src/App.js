@@ -10,7 +10,7 @@ import 'materialize-css/dist/css/materialize.min.css' ;
 import {Provider} from "react-redux" ;
 import store from "./store" ;
 
-import { loadUser } from './actions/authAction';
+
 
 class App extends Component {
 
