@@ -27,8 +27,8 @@ class App extends Component {
     <div className="App">
 
       <Switch>
-      <Route exact path='/' component={Form} />
-      <Route exact path='/home' component={Home} />
+      <Route exact path='/login' component={Form} />
+      <Route exact path='/' component={Home} />
       </Switch>
     
     </div>
@@ -39,5 +39,6 @@ class App extends Component {
  }
   
 }
+
 
 export default App;

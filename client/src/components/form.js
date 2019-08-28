@@ -82,7 +82,7 @@ class Form extends Component {
             }
 
             this.props.register(user)
-            this.props.history.push('/home');
+            this.props.history.push('/');
 
         }
 
@@ -131,7 +131,7 @@ class Form extends Component {
             <div>
                 {this.state.showSignUp ? <div class="container" id="container">
                     <form action="#">
-                        <h1>Create Account</h1>
+                        <h3>Create Account</h3>
                        
                         <input type="text" placeholder="Name" id="userName" />
                         <input type="email" placeholder="Email" id="email" />
